@@ -12,6 +12,7 @@ const home = require("./src/routes/home");
 //앱 세팅
 app.set("views", "./src/views"); //set해서 views를세팅해줄건데, 화면 뷰를 관리해줄 파일폴더 저장될 이름을 2번째파라미터로 전달./views
 app.set("view engine", "ejs"); //ejs 뷰엔진세팅.
+app.use(express.static(`${__dirname}/src/public`));
 
 app.use("/", home); //use는 미들웨어를 들록해주는 메서드.
 
