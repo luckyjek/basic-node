@@ -6,21 +6,16 @@
 const express = require("express"); //reuqire를 사용해서 express 모듈을 다운받는다.
 const app = express(); //app이라는 변수에 express를 실행시켜서 변수안에 넣어준다.
 
-const PORT = 3000;
-
 // 라우팅
-const home = require("./routes/home");
+const home = require("./src/routes/home");
 
 //앱 세팅
-app.set("views", "./views"); //set해서 views를세팅해줄건데, 화면 뷰를 관리해줄 파일폴더 저장될 이름을 2번째파라미터로 전달./views
+app.set("views", "./src/views"); //set해서 views를세팅해줄건데, 화면 뷰를 관리해줄 파일폴더 저장될 이름을 2번째파라미터로 전달./views
 app.set("view engine", "ejs"); //ejs 뷰엔진세팅.
 
 app.use("/", home); //use는 미들웨어를 들록해주는 메서드.
 
-app.listen(PORT, () => {
-    console.log("sever start");
-}); //listen이라는 명령어로 서버를 띄울 수 있다.
-
+module.exports = app;
 //첫번째 파라미터는 3000번으로 띄워달라!
 //두번째 파라미터로는 콜백함수를 넘길수있다.
 
