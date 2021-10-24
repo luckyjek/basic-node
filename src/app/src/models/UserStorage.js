@@ -28,6 +28,15 @@ class UserStorage {
 
         return userInfo;
     }
+
+    //User.js로 부터 받아온 client를 userInfo로 받는다.
+    static save(userInfo) {
+        const users = this.#users;
+        users.id.push(userInfo.id);
+        users.name.push(userInfo.name);
+        users.psword.push(userInfo.psword);
+        return { success: true };
+    }
 }
 
 module.exports = UserStorage;
